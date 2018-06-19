@@ -1,0 +1,64 @@
+<p> <a href='#\'> Back to search</a> </p>
+
+<hr/>
+
+Days: <a href="#/forecast/2" ng-class="{'bg-primary':days==='2'}">2</a> | <a href="#/forecast/5" ng-class="{'bg-primary':days==='5'}"> 5 </a> | <a href="#/forecast/7" ng-class="{'bg-primary':days==='7'}"> 7</a>
+ 
+<hr/>
+
+
+
+forecast for {{ city }}
+
+<div ng-repeat="w in weatherApi.list">
+        
+       <table class="table">
+            <tr>
+               <th> Date </th>
+               
+               <th> {{(w.dt)*1000|date:"MMM d,y"}}  </th>
+           </tr>
+           
+           <tr>
+               <th>Tempurature</th>
+               <th> {{convertToFahrenheit(w.main.temp)}} F</th>
+           </tr>
+           
+           <tr>
+               <th> Pressure </th>
+               <th> {{w.main.pressure}}</th>
+           </tr>
+           
+           <tr>
+               <th> Humidity </th>
+               <th> {{w.main.humidity}}</th>
+           </tr>
+           
+           <tr>
+               <th> Wind Speed, Wind Degree</th>
+               <th> {{w.wind.speed}}, {{w.wind.deg}}</th> 
+           </tr> 
+        </table> 
+       
+     
+    
+
+</div>
+
+   <!--
+   <div class="row">
+    <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                <h3 class="panel-title"> {{weatherApi.dt}} </h3>
+                </div>
+               
+                <div class="panel-body">
+                    Daytime tempurature: {{weatherApi.main.temp}}
+                    </div>
+            <kendo-grid [data]="gridData" [height]="410"></kendo-grid>
+       
+        
+        </div>
+        </div>
+    </div> -->
